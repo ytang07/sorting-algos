@@ -31,7 +31,7 @@ def quicksort(array, start, end):
     quicksort(array, start, p-1)
     quicksort(array, p+1, end)
 
-array = [5, 1, 3, 9, 8, 2, 7]
+array = list(map(int, input("Input a list of numbers (separated by spaces)").split()))
 print("Starting array is", array)
 quicksort(array, 0, len(array)-1)
 print(array)

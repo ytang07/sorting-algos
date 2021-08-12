@@ -1,28 +1,27 @@
 def pivot(array, start, end):
     pivot = array[start]
-    low = start + 1
-    high = end
+    left = start + 1
+    right = end
     print("Pivot number is", pivot)
-    print("Low index is", low)
-    print("High index is", high)
+    print("Starting left and right indices are", left, "and", right)
     while True:
-        while low <= high and array[high] >= pivot:
-            high = high-1
-            print(array[high+1], "is greater than or equal to", pivot, "the high index is now", high)
-        while low <= high and array[low] <= pivot:
-            low = low+1
-            print(array[low-1], "is less than or equal to", pivot, "the low index is now", low)
-        if low <=high:
-            print("The low index is less than or equal to the high index, so we'll swap the values")
-            array[low], array[high] = array[high], array[low]
+        while left <= right and array[right] >= pivot:
+            right = right-1
+            print(array[right+1], "is greater than or equal to", pivot, "so we shift the right index left to", right)
+        while left <= right and array[left] <= pivot:
+            left = left+1
+            print(array[left-1], "is less than or equal to", pivot, "so we shift the left index right to", left)
+        if left <=right:
+            print("The left index is still on the left of the right index, so we'll swap the values")
+            array[left], array[right] = array[right], array[left]
         else:
-            print("The low index is higher than the high index so we don't need to swap")
+            print("The left index is further right than the right index so we don't need to swap")
             break
     
-    print("We'll swap", array[start], array[high], "the starting number and the number in the high index")
-    array[start], array[high] = array[high], array[start]
-    print("The high index is", high, "the low index is", low)
-    return high
+    print("We'll swap the values in indices", start, "and", right)
+    array[start], array[right] = array[right], array[start]
+    print("The array is now", array)
+    return right
 
 def quicksort(array, start, end):
     if start>=end:

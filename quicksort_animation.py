@@ -22,7 +22,6 @@ def quicksort(array, start, end):
 def animate(array):
     n = len(array)
     generator = quicksort(array, 0, n-1)
-    plt.style.use('fivethirtyeight')
 
     fig, ax = plt.subplots()
     bar_rects = ax.bar(range(n), array, align="edge")
